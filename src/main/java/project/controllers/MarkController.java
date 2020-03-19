@@ -1,5 +1,6 @@
 package project.controllers;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import project.dao.MarkJdbc;
 import project.model.Mark;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ public class MarkController {
         this.markJdbc = markJdbc;
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/mark/{id}")
     public Mark GetMark(@PathVariable int id) {
         return markJdbc.Get(id);
