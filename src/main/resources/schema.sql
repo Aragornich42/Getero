@@ -6,7 +6,17 @@ CREATE TABLE study_group (
 
 CREATE TABLE student (
     id int NOT NULL,
-    surname varchar(255),
+    sur_name varchar(255),
+    name varchar(255),
+    second_name varchar(255),
+    study_group_id int,
+    PRIMARY KEY (id),
+    FOREIGN KEY (study_group_id) REFERENCES study_group(id)
+);
+
+CREATE TABLE student_local (
+    id int NOT NULL,
+    sur_name varchar(255),
     name varchar(255),
     second_name varchar(255),
     study_group_id int,
@@ -61,13 +71,9 @@ VALUES
        (1, 'ИКБО-02-16'),
        (2, 'ИКБО-03-16');
 
-INSERT INTO student (id, surname, name, second_name, study_group_id)
+INSERT INTO student_local (id, sur_name, name, second_name, study_group_id)
 VALUES
-(1, 'Каженцев', 'Василий', 'Александрович', 2),
-(2, 'Ухин', 'Дмитрий', 'Александрович', 2),
-(3, 'Андреев', 'Андрей', 'Андреевич', 1),
-(4, 'Николаев', 'Николай', 'Николаевич', 1),
-(5, 'Ясеновский', 'Александр', 'Сергеевич', 2);
+(571505, 'Каженцев', 'Василий', 'Александрович', 2);
 
 INSERT INTO subject (id, name, short_name)
 VALUES
@@ -106,5 +112,3 @@ VALUES
 (5, 'Зачет', 'з'),
 (6, 'Незачет', 'н'),
 (7, 'Неявка', '');
-
-SELECT * FROM mark;
