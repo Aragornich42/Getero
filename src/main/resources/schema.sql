@@ -6,7 +6,7 @@ CREATE TABLE study_group (
 
 CREATE TABLE student (
     id int NOT NULL,
-    sur_name varchar(255),
+    surname varchar(255),
     name varchar(255),
     second_name varchar(255),
     study_group_id int,
@@ -16,7 +16,7 @@ CREATE TABLE student (
 
 CREATE TABLE student_local (
     id int NOT NULL,
-    sur_name varchar(255),
+    surname varchar(255),
     name varchar(255),
     second_name varchar(255),
     study_group_id int,
@@ -71,9 +71,9 @@ VALUES
        (1, 'ИКБО-02-16'),
        (2, 'ИКБО-03-16');
 
-INSERT INTO student_local (id, sur_name, name, second_name, study_group_id)
+INSERT INTO student_local (id, surname, name, second_name, study_group_id)
 VALUES
-(571505, 'Каженцев', 'Василий', 'Александрович', 2);
+(850514, 'Каженцев', 'Василий', 'Александрович', 2);
 
 INSERT INTO subject (id, name, short_name)
 VALUES

@@ -40,7 +40,7 @@ public class StudentJdbc {
 
     public int Add(@NotNull Student stud)
     {
-        return jdbcTemplate.update("INSERT INTO student (sur_name, name, second_name, " +
+        return jdbcTemplate.update("INSERT INTO student (surname, name, second_name, " +
                 "study_group_id) VALUES (?, ?, ?, ?)", stud.getSurName(), stud.getName(),
                 stud.getSecondName(), stud.getStudyGroupId());
     }
@@ -50,7 +50,7 @@ public class StudentJdbc {
         StringBuilder sqlRequest = new StringBuilder("UPDATE student SET ");
 
         if (!StringUtils.isEmpty(stud.getSurName()))
-            sqlRequest.append("sur_name = '").append(stud.getSurName()).append("', ");
+            sqlRequest.append("surname = '").append(stud.getSurName()).append("', ");
         if (!StringUtils.isEmpty(stud.getName())) sqlRequest.append("name = '").append(stud.getName())
                 .append("', ");
         if (!StringUtils.isEmpty(stud.getSecondName()))
@@ -79,7 +79,7 @@ public class StudentJdbc {
         return new Student(
                 rs.getInt("id"),
                 rs.getInt("study_group_id"),
-                rs.getString("sur_name"),
+                rs.getString("surname"),
                 rs.getString("name"),
                 rs.getString("second_name")
         );
@@ -93,7 +93,7 @@ public class StudentJdbc {
         {
             studentList.add(new Student(rs.getInt("id"),
                     rs.getInt("study_group_id"),
-                    rs.getString("sur_name"),
+                    rs.getString("surname"),
                     rs.getString("name"),
                     rs.getString("second_name")));
         }
